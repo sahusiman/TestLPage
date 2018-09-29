@@ -45,7 +45,7 @@ public void LandingPgBrowserOpen() throws InterruptedException
     
     driver.findElement(By.xpath(".//*[@id='i0116']")).sendKeys("simanchal.sahu@vodafone.com");
     driver.findElement(By.xpath(".//*[@id='idSIButton9']")).click();  
-    Thread.sleep(10000);
+    Thread.sleep(50000);
     driver.findElement(By.xpath(".//*[@id='passwordInput']")).sendKeys("Vodass@63");
     driver.findElement(By.xpath(".//*[@id='submitButton']")).click();
     driver.findElement(By.xpath(".//*[@id='continueButton']")).click();
