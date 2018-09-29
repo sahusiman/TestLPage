@@ -61,10 +61,10 @@ public void LandingPgBrowserOpen() throws InterruptedException
     driver.switchTo().window(childid1); 
     }  
     }
-    WebDriverWait wait = new WebDriverWait(driver, 50);
+    WebDriverWait wait = new WebDriverWait(driver, 30000);
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='idSIButton9']")));
     driver.findElement(By.xpath(".//*[@id='idSIButton9']")).click();
-    WebDriverWait wait1 = new WebDriverWait(driver, 50);
+    WebDriverWait wait1 = new WebDriverWait(driver, 30000);
     wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='bookMarkHome']/div/div/div[2]")));
     //driver.findElement(By.xpath(".//*[@id='obtopics']/ul/li[4]/p")).click();
     driver.findElement(By.xpath(".//*[@id='bookMarkHome']/div/div/div[2]")).click();
@@ -101,9 +101,11 @@ public void LandingPgBrowserOpen() throws InterruptedException
    	 //driver.findElement(By.xpath(".//*[@id='detail-pane-content']/acro-bot-poc-detail-pane/div[1]/div[1]/div[2]/div/a[2]")).click();
 	}
     
+    
     @Test(dependsOnMethods = { "LandingPgAcronymclick" })
-    public void LandingPgComp()
+    public void LandingPgComp() throws InterruptedException
     {
+    	//Thread.sleep(30000);
     	WebElement S = driver.findElement(By.xpath(".//*[@id='detail-pane-content']/acro-bot-poc-detail-pane/div[1]/div[2]/div/span[1]"));;
     	//WebElement Y=driver.findElement(By.xpath(".//*[@id='detail-pane-content']/acro-bot-poc-detail-pane/div[1]/div[2]/div/span[5]")); 
     	String A=S.getText();
@@ -118,16 +120,14 @@ public void LandingPgBrowserOpen() throws InterruptedException
     	 driver.findElement(By.xpath(".//*[@id='detail-pane-content']/acro-bot-poc-detail-pane/div[1]/div[3]/input[1]")).clear();
     	 driver.findElement(By.xpath(".//*[@id='detail-pane-content']/acro-bot-poc-detail-pane/div[1]/div[3]/input[1]")).click();
     	 Assert.fail("Failed");
-      	 //driver.findElement(By.xpath(".//*[@id='detail-pane-content']/acro-bot-poc-detail-pane/div[1]/div[3]/input[2]")).sendKeys("anc");
     }
-    
-    @Test(dependsOnMethods = { "LandingPgComp" })
+    @Test(dependsOnMethods = {"LandingPgComp"})
     public void LandingPgInventdummy()
     {
     	 driver.findElement(By.xpath(".//*[@id='detail-pane-content']/acro-bot-poc-detail-pane/div[1]/div[3]/input[1]")).clear();
     	 driver.findElement(By.xpath(".//*[@id='detail-pane-content']/acro-bot-poc-detail-pane/div[1]/div[3]/input[1]")).click();
- 
+    }
 }
-}
+
 
 
